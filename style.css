@@ -1,0 +1,77 @@
+@font-face {
+    font-family: 'Nunito-Regular';
+    src: url('fonts/Nunito-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito-Regular', serif;
+}
+body {
+    background-color: #CD5656;
+    color: #EAEBD0;
+
+}
+.icons {
+    height: 56px;
+}
+/* first line*/
+.first-container {
+    display: flex;
+    justify-content: center;
+}
+.first-line {
+    display: inline-flex;
+    align-items: center;
+    gap: 40px;
+    margin-top: 40px;
+}
+.settings, .sign-in{
+    display: inline-flex;
+    gap: 10px;
+    vertical-align: baseline;
+    font-size: 50px;
+    background-color: rgb(234, 235, 216, 0.3);
+    height: 70px;
+    width: 260px;
+    border-radius: 10px;
+    padding: 10px;
+    align-items: center;
+    cursor: pointer;
+}
+.three-dots {
+    background-color: rgb(234, 235, 216, 0.3);
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+.first-line-name {
+    display: inline-flex;
+    gap: 10px;
+}
+.name-icon {
+    height: 96px;
+}
+.pomodoro-name {
+    font-weight: 900;
+    font-size: 70px;
+    margin-right: 180px;
+}
+/* red line */
+.red-line {
+    margin-top: 30px;
+    margin-left: 620px;
+    height: 6px;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(175, 62, 62, 0.3);
+}
+.main-container {
+
+}
+
