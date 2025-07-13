@@ -13,7 +13,6 @@
 body {
     background-color: #CD5656;
     color: #EAEBD0;
-
 }
 .icons {
     height: 56px;
@@ -71,7 +70,46 @@ body {
     align-items: center;
     background-color: rgb(175, 62, 62, 0.3);
 }
+/* main container */
 .main-container {
-
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 180px;
+    background-color: rgb(218, 108, 108, 0.8);
+    width: 50%;
+    justify-content: center;
+    margin-left: 760px;
+    height: 750px;
 }
-
+.navi {
+    display: inline-flex;
+    gap: 40px;
+    font-size: 60px;
+}
+.pomodoro-navi {
+    border-radius: 10px;
+    background-color: rgb(175, 62, 62, 0.8);
+    padding: 10px 20px;
+}
+.counter {
+    display: flex;
+    font-size: 200px;
+    font-weight: bold;
+}
+.start-button {
+    border-radius: 10px;
+    background-color: rgb(234, 235, 208);
+    color: #CD5656;
+    height: 170px;
+    width: 550px;
+    font-size: 100px;
+    font-weight: bold;
+    justify-content: center;
+    display: flex;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.short-navi, .long-navi {
+    cursor: pointer;
+}
