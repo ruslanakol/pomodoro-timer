@@ -15,7 +15,7 @@ body {
     color: #EAEBD0;
 }
 .icons {
-    height: 56px;
+    height: 26px;
 }
 /* first line*/
 .first-container {
@@ -25,25 +25,25 @@ body {
 .first-line {
     display: inline-flex;
     align-items: center;
-    gap: 40px;
-    margin-top: 40px;
+    gap: 20px;
+    margin-top: 20px;
 }
 .settings, .sign-in{
     display: inline-flex;
     gap: 10px;
     vertical-align: baseline;
-    font-size: 50px;
-    background-color: rgb(234, 235, 216, 0.3);
-    height: 70px;
-    width: 260px;
-    border-radius: 10px;
+    font-size: 25px;
+    background-color: rgba(234, 235, 216, 0.3);
+    height: 45px;
+    width: 150px;
+    border-radius: 5px;
     padding: 10px;
     align-items: center;
     cursor: pointer;
 }
 .three-dots {
-    background-color: rgb(234, 235, 216, 0.3);
-    border-radius: 10px;
+    background-color: rgba(234, 235, 216, 0.3);
+    border-radius: 5px;
     padding: 10px;
     cursor: pointer;
 }
@@ -52,18 +52,19 @@ body {
     gap: 10px;
 }
 .name-icon {
-    height: 96px;
+    height: 48px;
 }
 .pomodoro-name {
     font-weight: 900;
-    font-size: 70px;
+    font-size: 35px;
     margin-right: 180px;
 }
 /* red line */
 .red-line {
     margin-top: 30px;
-    margin-left: 620px;
-    height: 6px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 3px;
     width: 60%;
     display: flex;
     justify-content: center;
@@ -75,17 +76,19 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 180px;
+    margin-top: 40px;
     background-color: rgb(218, 108, 108, 0.8);
     width: 50%;
+    max-width: 800px;
     justify-content: center;
-    margin-left: 760px;
-    height: 750px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 350px;
 }
 .navi {
     display: inline-flex;
     gap: 40px;
-    font-size: 60px;
+    font-size: 30px;
 }
 .pomodoro-navi {
     border-radius: 10px;
@@ -94,21 +97,25 @@ body {
 }
 .counter {
     display: flex;
-    font-size: 200px;
+    font-size: 100px;
     font-weight: bold;
 }
 .start-button {
     border-radius: 10px;
     background-color: rgb(234, 235, 208);
     color: #CD5656;
-    height: 170px;
-    width: 550px;
-    font-size: 100px;
+    height: 85px;
+    width: 275px;
+    font-size: 50px;
     font-weight: bold;
     justify-content: center;
     display: flex;
-    padding: 10px 20px;
+    padding: 5px 10px;
     cursor: pointer;
+    transition: transform 0.2s ease;
+}
+.start-button:hover {
+    transform: scale(1.05);
 }
 .short-navi, .long-navi {
     cursor: pointer;
