@@ -38,18 +38,11 @@ button.addEventListener('click', () => {
         timerId = setInterval(tick, 1000);
         button.textContent = "PAUSE";
         resetBtn.style.display = "inline-block"; // показуємо reset
-        document.body.classList.toggle('basic');
-        document.body.classList.toggle('dark');
-        mainContainer.classList.toggle('basic');
-        mainContainer.classList.toggle('dark');
-        redLine.classList.toggle('basic');
-        redLine.classList.toggle('dark');
-        resetBtn.classList.toggle('basic');
-        resetBtn.classList.toggle('dark');
-        button.classList.toggle('basic');
-        button.classList.toggle('dark');
-        pomodoroBack.classList.toggle('basic');
-        pomodoroBack.classList.toggle('dark');
+
+        [document.body, mainContainer, redLine, resetBtn, button, pomodoroBack].forEach(el => {
+            el.classList.add('dark');
+            el.classList.remove('basic');
+        });
 
     } else {
         // PAUSE
@@ -66,18 +59,10 @@ resetBtn.addEventListener('click', () => {
     render();
     button.textContent = "START";
     resetBtn.style.display = "none"; // знову ховаємо reset
-    document.body.classList.toggle('basic');
-    document.body.classList.toggle('dark');
-    mainContainer.classList.toggle('basic');
-    mainContainer.classList.toggle('dark');
-    redLine.classList.toggle('basic');
-    redLine.classList.toggle('dark');
-    resetBtn.classList.toggle('basic');
-    resetBtn.classList.toggle('dark');
-    button.classList.toggle('basic');
-    button.classList.toggle('dark');
-    pomodoroBack.classList.toggle('basic');
-    pomodoroBack.classList.toggle('dark');
+    [document.body, mainContainer, redLine, resetBtn, button, pomodoroBack].forEach(el => {
+        el.classList.add('basic');
+        el.classList.remove('dark');
+    });
 });
 
 render();
