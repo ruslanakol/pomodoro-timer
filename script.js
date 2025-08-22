@@ -17,13 +17,17 @@ const modes = {
 let currentMode = 'pomodoro';
 let timerId = null;
 let secondTimer = 1500;
-let isTimerRunning = false; // чи працює таймер
+let isTimerRunning = false;
 
 function render() {
     let minutes = Math.floor(secondTimer / 60);
     let secondsLeft = secondTimer % 60;
     if (secondsLeft < 10) secondsLeft = "0" + secondsLeft;
     counter.innerText = `${minutes}:${secondsLeft}`;
+
+    // титул
+    let counterTitle = `${minutes}:${secondsLeft}`;
+    document.title = `${counterTitle} - Time to focus!`;
 }
 
 function updateTheme() {
@@ -46,6 +50,10 @@ function updateTheme() {
         }
     }
 }
+function bellSound() {
+    const sound = document.getElementById('soundPlayer');
+    sound.play();
+}
 
 function tick() {
     secondTimer--;
@@ -54,38 +62,42 @@ function tick() {
     if (secondTimer <= 0) {
         clearInterval(timerId);
         timerId = null;
-        isTimerRunning = false; // таймер зупинився
+        isTimerRunning = false;
         button.textContent = "START";
         resetBtn.style.display = "none";
         secondTimer = modes.pomodoro;
-        currentMode = 'pomodoro'; // повертаємось до pomodoro після завершення
+        currentMode = 'pomodoro';
         render();
         updateTheme();
+        bellSound();
+        bellSound();
+        bellSound();
     }
 }
 
 button.addEventListener('click', () => {
+
     if (timerId === null) {
         // START
         timerId = setInterval(tick, 1000);
         button.textContent = "PAUSE";
         resetBtn.style.display = "inline-block";
-        isTimerRunning = true; // таймер запущено
-        updateTheme(); // оновлюємо тему на темну
+        isTimerRunning = true;
+        updateTheme();
     } else {
         // PAUSE
         clearInterval(timerId);
         timerId = null;
         button.textContent = "START";
-        isTimerRunning = false; // таймер на паузі
-        updateTheme(); // повертаємо базову тему
+        isTimerRunning = false;
+        updateTheme();
     }
 });
 
 resetBtn.addEventListener('click', () => {
     clearInterval(timerId);
     timerId = null;
-    isTimerRunning = false; // таймер зупинено
+    isTimerRunning = false;
 
     // Повертаємо таймер до часу поточного режиму
     secondTimer = modes[currentMode];
