@@ -25,6 +25,10 @@ body.blue {
     background-color: #006A71;
     color: #DDDDDD;
 }
+body.purple {
+    background-color: #3B1E54;
+    color: #EEEEEE;
+}
 .icons {
     height: 26px;
 }
@@ -38,25 +42,6 @@ body.blue {
     align-items: center;
     gap: 20px;
     margin-top: 20px;
-}
-.settings, .sign-in{
-    display: inline-flex;
-    gap: 10px;
-    vertical-align: baseline;
-    font-size: 25px;
-    background-color: rgba(234, 235, 216, 0.3);
-    height: 45px;
-    width: 150px;
-    border-radius: 5px;
-    padding: 10px;
-    align-items: center;
-    cursor: pointer;
-}
-.three-dots {
-    background-color: rgba(234, 235, 216, 0.3);
-    border-radius: 5px;
-    padding: 10px;
-    cursor: pointer;
 }
 .first-line-name {
     display: inline-flex;
@@ -113,6 +98,9 @@ body.blue {
 .main-container.blue {
     background-color: #48A6A7;
 }
+.main-container.purple {
+    background-color: #9B7EBD;
+}
 .navi {
     display: inline-flex;
     gap: 40px;
@@ -127,10 +115,25 @@ body.blue {
     background-color: rgb(175, 62, 62, 0.8);
 }
 .pomodoro-navi.dark {
-    background-color: black;
+    background-color: #30302f;
 }
 .pomodoro-navi.blue {
+    background-color: #48A6A7;
+}
+.pomodoro-navi.purple {
+    background-color: #9B7EBD;
+}
+.short-navi.blue {
     background-color: #006A71;
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.long-navi.purple {
+    background-color: #3B1E54;
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
 }
 .counter {
     display: flex;
@@ -158,8 +161,12 @@ body.blue {
     color: #DDDDDD;
 }
 .button-start.blue {
-    background-color: #48A6A7;
+    background-color: #006A71;
     color: #DDDDDD;
+}
+.button-start.purple {
+    background-color: #3B1E54;
+    color: #EEEEEE;
 }
 .button-start:hover {
     transform: scale(1.05);
@@ -195,6 +202,28 @@ body.blue {
     color: #DDDDDD;
 }
 .button-reset.blue {
-    background-color: #48A6A7;
+    background-color: #006A71;
     color: #DDDDDD;
+    height: 85px;
+    width: 275px;
+    font-size: 50px;
+    font-weight: bold;
+    justify-content: center;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    text-align: center;
+}
+.button-reset.purple {
+    background-color: #3B1E54;
+    color: #EEEEEE;
+    height: 85px;
+    width: 275px;
+    font-size: 50px;
+    font-weight: bold;
+    justify-content: center;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    text-align: center;
 }

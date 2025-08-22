@@ -1,6 +1,8 @@
 const button = document.querySelector('.button-start');
 const resetBtn = document.querySelector('.button-reset');
 const pomodoroBack = document.querySelector('.pomodoro-navi');
+const shortNavi = document.querySelector('.short-navi');
+const longNavi = document.querySelector('.long-navi');
 const counter = document.getElementById('counter');
 const mainContainer = document.getElementById('main-container');
 const redLine = document.getElementById('red-line');
@@ -13,10 +15,9 @@ const modes = {
     longBreak: 900,
 };
 let currentMode = 'pomodoro';
-
-
 let timerId = null;
 let secondTimer = 1500;
+let isTimerRunning = false; // чи працює таймер
 
 function render() {
     let minutes = Math.floor(secondTimer / 60);
@@ -26,24 +27,25 @@ function render() {
 }
 
 function updateTheme() {
-    const elements = [document.body, mainContainer, redLine, resetBtn, button, pomodoroBack];
+    const elements = [document.body, mainContainer, redLine, resetBtn, button, pomodoroBack, longNavi, shortNavi];
 
-    // прибираємо всі додаткові класи
-    elements.forEach(el => el.classList.remove('basic', 'blue', 'purple'));
+    // Прибираємо всі класи тем
+    elements.forEach(el => el.classList.remove('basic', 'blue', 'purple', 'dark'));
 
-    // додаємо dark завжди
-    elements.forEach(el => el.classList.add('dark'));
-
-    // додаємо колір залежно від режиму
-    if (currentMode === 'pomodoro') {
-        elements.forEach(el => el.classList.add('basic')); // базовий колір для pomodoro
-    } else if (currentMode === 'shortBreak') {
-        elements.forEach(el => el.classList.add('blue')); // синій для short break
-    } else if (currentMode === 'longBreak') {
-        elements.forEach(el => el.classList.add('purple')); // фіолет для long break
+    if (isTimerRunning) {
+        // Якщо таймер запущений - темна тема
+        elements.forEach(el => el.classList.add('dark'));
+    } else {
+        // Якщо таймер зупинений - базова тема відповідно до режиму
+        if (currentMode === 'pomodoro') {
+            elements.forEach(el => el.classList.add('basic'));
+        } else if (currentMode === 'shortBreak') {
+            elements.forEach(el => el.classList.add('blue'));
+        } else if (currentMode === 'longBreak') {
+            elements.forEach(el => el.classList.add('purple'));
+        }
     }
 }
-
 
 function tick() {
     secondTimer--;
@@ -52,10 +54,13 @@ function tick() {
     if (secondTimer <= 0) {
         clearInterval(timerId);
         timerId = null;
+        isTimerRunning = false; // таймер зупинився
         button.textContent = "START";
-        resetBtn.style.display = "none"; // ховаємо reset
-        secondTimer = 1500;
+        resetBtn.style.display = "none";
+        secondTimer = modes.pomodoro;
+        currentMode = 'pomodoro'; // повертаємось до pomodoro після завершення
         render();
+        updateTheme();
     }
 }
 
@@ -64,40 +69,47 @@ button.addEventListener('click', () => {
         // START
         timerId = setInterval(tick, 1000);
         button.textContent = "PAUSE";
-        resetBtn.style.display = "inline-block"; // показуємо reset
-
-        }
-    else {
+        resetBtn.style.display = "inline-block";
+        isTimerRunning = true; // таймер запущено
+        updateTheme(); // оновлюємо тему на темну
+    } else {
         // PAUSE
         clearInterval(timerId);
         timerId = null;
         button.textContent = "START";
+        isTimerRunning = false; // таймер на паузі
+        updateTheme(); // повертаємо базову тему
     }
 });
 
 resetBtn.addEventListener('click', () => {
     clearInterval(timerId);
     timerId = null;
-    secondTimer = 1500;
-    render();
-    button.textContent = "START";
-    resetBtn.style.display = "none"; // знову ховаємо reset
+    isTimerRunning = false; // таймер зупинено
 
+    // Повертаємо таймер до часу поточного режиму
+    secondTimer = modes[currentMode];
+    render();
+
+    button.textContent = "START";
+    resetBtn.style.display = "none";
+
+    // Оновлюємо тему на базову
+    updateTheme();
 });
 
 render();
-resetBtn.style.display = "none"; // спочатку прихована
-
-
-
-
-
-
-
-
+resetBtn.style.display = "none";
 
 // short break
 shortBreak.addEventListener('click', () => {
+    // Зупиняємо таймер якщо він працює
+    if (timerId) {
+        clearInterval(timerId);
+        timerId = null;
+        isTimerRunning = false;
+    }
+
     currentMode = 'shortBreak';
     secondTimer = modes[currentMode];
     render();
@@ -105,7 +117,15 @@ shortBreak.addEventListener('click', () => {
     resetBtn.style.display = "none";
     updateTheme();
 });
+
 pomodoroBack.addEventListener('click', () => {
+    // Зупиняємо таймер якщо він працює
+    if (timerId) {
+        clearInterval(timerId);
+        timerId = null;
+        isTimerRunning = false;
+    }
+
     currentMode = 'pomodoro';
     secondTimer = modes[currentMode];
     render();
@@ -113,7 +133,15 @@ pomodoroBack.addEventListener('click', () => {
     resetBtn.style.display = "none";
     updateTheme();
 });
+
 longBreak.addEventListener('click', () => {
+    // Зупиняємо таймер якщо він працює
+    if (timerId) {
+        clearInterval(timerId);
+        timerId = null;
+        isTimerRunning = false;
+    }
+
     currentMode = 'longBreak';
     secondTimer = modes[currentMode];
     render();
@@ -122,4 +150,5 @@ longBreak.addEventListener('click', () => {
     updateTheme();
 });
 
-
+// Ініціалізуємо тему при завантаженні
+updateTheme();
