@@ -227,3 +227,100 @@ body.purple {
     transition: transform 0.2s ease;
     text-align: center;
 }
+
+
+
+
+/* responsible */
+@media (max-width: 768px) {
+
+    .first-line-name {
+        display: inline-flex;
+        gap: 10px;
+        margin-left: -40px;
+        vertical-align: baseline;
+    }
+    .name-icon {
+        height: 48px;
+    }
+    .pomodoro-name {
+        font-weight: 900;
+        font-size: 35px;
+    }
+    .red-line {
+        margin-top: 30px;
+        margin-left: auto;
+        margin-right: auto;
+        height: 3px;
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .main-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 100px;
+        border-radius: 10px;
+        width: 90%;
+        max-width: 800px;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+        height: 360px;
+    }
+
+    .navi {
+        display: inline-flex;
+        gap: 10px;
+        margin-top: -70px;
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+
+    .short-navi.blue {
+        background-color: #006A71;
+        border-radius: 10px;
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+    .long-navi.purple {
+        background-color: #3B1E54;
+        border-radius: 10px;
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+    .pomodoro-navi, .short-navi, .long-navi {
+        border-radius: 10px;
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+
+    .button-start {
+        border-radius: 10px;
+        height: 55px;
+        width: 138px;
+        font-size: 30px;
+        font-weight: bold;
+        justify-content: center;
+        display: flex;
+        padding: 5px 10px;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+    }
+
+    .button-reset {
+        border-radius: 10px;
+        height: 55px;
+        width: 138px;
+        font-size: 30px;
+        font-weight: bold;
+        justify-content: center;
+        padding: 5px 10px;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+        text-align: center;
+    }
+
+}
