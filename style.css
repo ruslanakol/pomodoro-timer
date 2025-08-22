@@ -111,8 +111,12 @@ body.purple {
     padding: 10px 20px;
     cursor: pointer;
 }
+.short-navi, .long-navi {
+    padding: 10px 20px;
+}
 .pomodoro-navi.basic {
     background-color: rgb(175, 62, 62, 0.8);
+    font-weight: bold;
 }
 .pomodoro-navi.dark {
     background-color: #30302f;
@@ -128,12 +132,14 @@ body.purple {
     border-radius: 10px;
     padding: 10px 20px;
     cursor: pointer;
+    font-weight: bold;
 }
 .long-navi.purple {
     background-color: #3B1E54;
     border-radius: 10px;
     padding: 10px 20px;
     cursor: pointer;
+    font-weight: bold;
 }
 .counter {
     display: flex;
